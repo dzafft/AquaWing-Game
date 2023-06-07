@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import emblem from "../../assets/emblem.png";
+import { VolumeOff, VolumeUp } from "@mui/icons-material";
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -59,4 +60,29 @@ export const BackButton = styled.button`
   &:hover {
     opacity: 0.8;
   }
+`;
+
+export const MuteButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const VolumeOffIcon = styled(VolumeOff)`
+  font-size: 2rem;
+`;
+
+export const VolumeUpIcon = styled(VolumeUp)`
+  font-size: 2rem;
 `;

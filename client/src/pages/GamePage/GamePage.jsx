@@ -8,6 +8,9 @@ import {
   ScoreWrapper,
   MessageWrapper,
   BackButton,
+  MuteButton,
+  VolumeOffIcon,
+  VolumeUpIcon,
 } from "./styles";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import aquawingStart from "../../assets/aquawing_start.mp3";
@@ -15,6 +18,7 @@ import aquawingStart from "../../assets/aquawing_start.mp3";
 const GamePage = () => {
   const [score, setScore] = useState(0);
   const [hasGameStarted, setHasGameStarted] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   const navigate = useNavigate();
 
@@ -22,12 +26,8 @@ const GamePage = () => {
     navigate("/");
   };
 
-  const handleGameStart = () => {
-    setHasGameStarted(true);
-  };
-
-  const handleGameOver = () => {
-    setHasGameStarted(false);
+  const handleMute = () => {
+    setIsMuted(!isMuted);
   };
 
   return (
@@ -51,7 +51,16 @@ const GamePage = () => {
       <BackButton onClick={handleBack}>
         <ArrowBackIcon fontSize="large" />
       </BackButton>
-      {hasGameStarted && <ReactAudioPlayer src={aquawingStart} autoPlay />}
+      <MuteButton onClick={handleMute}>
+        {isMuted ? (
+          <VolumeOffIcon fontSize="large" />
+        ) : (
+          <VolumeUpIcon fontSize="large" />
+        )}
+      </MuteButton>
+      {hasGameStarted && (
+        <ReactAudioPlayer src={aquawingStart} autoPlay muted={isMuted} />
+      )}
     </>
   );
 };

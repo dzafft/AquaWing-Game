@@ -10,16 +10,23 @@ import AuthModal from "../../components/AuthModal/AuthModal";
 import helpButton from "../../assets/help_button.png";
 import { usersContextRef } from "../../contexts/usersContext";
 import { useNavigate } from "react-router";
+import Instructions from "../../components/Instructions/Instructions";
 
 const HomePage = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [openModal, setOpenModal] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(false);
+
   const { currentUser } = useContext(usersContextRef);
 
   const navigate = useNavigate();
 
   const handleMute = () => {
     setIsMuted(!isMuted);
+  };
+
+  const handleToggleInstructions = () => {
+    setShowInstructions(!showInstructions);
   };
 
   return (
@@ -37,7 +44,7 @@ const HomePage = () => {
         <div className="right-corner">
           <button
             className="help-button"
-            onClick={() => navigate("/howtoplay")}
+            onClick={() => handleToggleInstructions()}
           >
             <img src={helpButton} style={{ width: "80px" }} alt="How to Play" />
           </button>
@@ -51,6 +58,11 @@ const HomePage = () => {
         open={openModal}
         setOpen={setOpenModal}
         content={<AuthModal />}
+      />
+      <ModalComponent
+        open={showInstructions}
+        setOpen={setShowInstructions}
+        content={<Instructions />}
       />
     </div>
   );

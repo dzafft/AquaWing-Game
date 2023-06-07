@@ -43,3 +43,20 @@ export const MessageWrapper = styled.div`
   color: white;
   display: ${({ hasGameStarted }) => (hasGameStarted ? "none" : "block")};
 `;
+
+export const BackButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 1rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;

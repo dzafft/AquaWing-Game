@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import jumpSound from "../../assets/jump.wav";
+import ReactAudioPlayer from "react-audio-player";
 import {
   Bird,
   Div,
@@ -115,6 +117,9 @@ const Game = ({ score, setScore, hasGameStarted, setHasGameStarted }) => {
       newBirdPosition = 0;
     }
     setIsJumping(true);
+
+    const audio = new Audio(jumpSound);
+    audio.play();
 
     setTimeout(() => {
       setIsJumping(false);

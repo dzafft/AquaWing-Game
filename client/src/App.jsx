@@ -1,12 +1,16 @@
 import "./App.css";
 import { useState } from "react";
-import ModalComponent from "./ui/ModalComponent/ModalComponent";
+import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
+import GamePage from "./pages/GamePage/GamePage";
 
 function App() {
   return (
-    <div>
-      <HomePage />
+    <div className="main-container">
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/start" element={<GamePage />}></Route>
+      </Routes>
     </div>
   );
 }

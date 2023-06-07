@@ -1,0 +1,78 @@
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3.5rem 2rem 2rem 2rem;
+}
+
+.signup-form h1 {
+    margin: 1rem;
+}
+
+.signup-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.signup-form input {
+    margin: 8px;
+    font: 1rem;
+    padding: 5px;
+    line-height: 1rem;
+    border-radius: 10px;
+    font-family: 'Aoboshi One', serif;
+}
+
+.submit-button {
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 5px;
+    font-family: 'Aoboshi One', serif;
+    font-size: 1.2rem;
+}
+
+.submit-button:hover {
+    cursor: pointer;
+}
+
+.submit-button:disabled {
+    opacity: "70%";
+    cursor: not-allowed;
+}
+
+.signup-header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signup-header h2 {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.signup-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem;
+}
+
+.signup-footer button {
+    border: none;
+    width: fit-content;
+    background: none;
+    color: blue;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+.signup-footer button:hover {
+    cursor: pointer;
+}

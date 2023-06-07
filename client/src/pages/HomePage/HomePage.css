@@ -1,0 +1,63 @@
+.homepage-wrapper {
+    background-image: url("../../assets/homepage_background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+}
+
+.top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.left-corner {
+    display: flex;
+    align-items: center;
+}
+
+.right-corner {
+    display: flex;
+    align-items: center;
+}
+
+.menu-wrapper {
+    margin-top: 60px;
+}
+
+.mute-button {
+    margin: 2rem;
+    align-self: flex-start;
+    border: none;
+    border-radius: 30px;
+    background: #E8D8C1;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mute-button:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.help-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.help-button:hover {
+    scale: 1.1;
+}

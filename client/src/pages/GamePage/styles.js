@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import emblem from "../../assets/emblem.png";
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -17,4 +18,28 @@ export const GameWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const ScoreWrapper = styled.div`
+  position: absolute;
+  top: 120px;
+  right: 50%;
+  transform: translateY(-50%) translateX(50%);
+  font-size: 4rem;
+  color: white;
+  padding: 5rem;
+  background-image: url(${emblem});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+export const MessageWrapper = styled.div`
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  color: white;
+  display: ${({ hasGameStarted }) => (hasGameStarted ? "none" : "block")};
 `;

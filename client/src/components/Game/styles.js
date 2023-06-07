@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import gameBackground from "../../assets/game_background.jpg";
+import coralPattern from "../../assets/coral_pattern.png";
 
 export const Bird = styled.div`
   position: absolute;
-  background-color: red;
   height: ${(props) => props.size}px;
   width: ${(props) => props.size}px;
   top: ${(props) => props.top}px;
@@ -25,13 +26,16 @@ export const Div = styled.div`
 export const Gamebox = styled.div`
   height: ${(props) => props.height}px;
   width: ${(props) => props.width}px;
+  background-image: url(${gameBackground});
+  background-size: contain;
   background-color: blue;
   overflow: hidden;
 `;
 
 export const Obstacle = styled.div`
   position: relative;
-  background-color: green;
+  background-image: url(${coralPattern});
+  background-color: rgba(0, 0, 0, 0.5);
   height: ${(props) => props.height}px;
   width: ${(props) => props.width}px;
   left: ${(props) => props.left}px;
@@ -41,4 +45,9 @@ export const Obstacle = styled.div`
 export const GameComponentContainer = styled.div`
   position: relative;
   height: 100%;
+`;
+
+export const BirdImage = styled.img`
+  width: 50px;
+  height: auto;
 `;

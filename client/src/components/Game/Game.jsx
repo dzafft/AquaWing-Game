@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Bird, Div, Gamebox, Obstacle, GameComponentContainer } from "./styles";
+import {
+  Bird,
+  Div,
+  Gamebox,
+  Obstacle,
+  GameComponentContainer,
+  BirdImage,
+} from "./styles";
+import spriteFloating from "../../assets/sprite_float.png";
+import spriteJumping from "../../assets/sprite_jump.png";
 
 const BIRD_SIZE = 20;
 const GAME_WIDTH = 500;
@@ -9,15 +18,18 @@ const JUMP_HEIGHT = 100;
 const OBSTACLE_WIDTH = 50;
 const OBSTACLE_GAP = 8 * BIRD_SIZE;
 
-const Game = () => {
+const Game = ({ score, setScore, hasGameStarted, setHasGameStarted }) => {
   const [birdPosition, setBirdPosition] = useState(250);
-  const [hasGameStarted, setHasGameStarted] = useState(false);
   const [obstacleHeight, setObstacleHeight] = useState(100);
   const [obstacleLeft, setObstacleLeft] = useState(GAME_WIDTH - OBSTACLE_WIDTH);
-  const [score, setScore] = useState(0);
   const [scoreHistory, setScoreHistory] = useState([]);
+  const [isJumping, setIsJumping] = useState(false);
 
   const bottomObstacleHeight = GAME_HEIGHT - (OBSTACLE_GAP + obstacleHeight);
+
+  useEffect(() => {
+    setScore(score);
+  }, [score, setScore]);
 
   useEffect(() => {
     const storedScoreHistory = localStorage.getItem("scoreHistory");
@@ -63,9 +75,38 @@ const Game = () => {
     }
   }, [hasGameStarted, obstacleLeft]);
 
+  const handleSpaceBar = (event) => {
+    if (event.code === "Space" || event.keyCode === 32) {
+      event.preventDefault();
+      setIsJumping(true);
+
+      setTimeout(() => {
+        setIsJumping(false);
+      }, 400);
+
+      if (!hasGameStarted) {
+        setHasGameStarted(true);
+        setScore(0);
+      }
+
+      let newBirdPosition = birdPosition - JUMP_HEIGHT;
+      if (newBirdPosition < 0) {
+        newBirdPosition = 0;
+      }
+      setBirdPosition(newBirdPosition);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleSpaceBar);
+    return () => {
+      document.removeEventListener("keydown", handleSpaceBar);
+    };
+  }, []);
+
   const handleClick = (e) => {
     if (hasGameStarted === false) {
-      e.stopPropagation();
+      e?.stopPropagation();
       setHasGameStarted(true);
       setScore(0);
     }
@@ -73,6 +114,11 @@ const Game = () => {
     if (newBirdPosition < 0) {
       newBirdPosition = 0;
     }
+    setIsJumping(true);
+
+    setTimeout(() => {
+      setIsJumping(false);
+    }, 400);
 
     setBirdPosition(newBirdPosition);
   };
@@ -118,10 +164,19 @@ const Game = () => {
             height={bottomObstacleHeight}
             left={obstacleLeft}
           />
-          <Bird size={BIRD_SIZE} top={birdPosition} />
+          <Bird
+            size={BIRD_SIZE}
+            top={birdPosition}
+            className={isJumping ? "jumping" : ""}
+          >
+            {" "}
+            <BirdImage
+              src={isJumping ? spriteJumping : spriteFloating}
+              alt="Bird"
+            />
+          </Bird>
         </GameComponentContainer>
       </Gamebox>
-      <span>{score}</span>
     </Div>
   );
 };

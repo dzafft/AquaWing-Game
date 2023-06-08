@@ -57,7 +57,7 @@ const LoginForm = ({ handleToggleForm, handleMusic }) => {
         />
         <label>Password</label>
         <input
-          type="text"
+          type="password" // Change the input type to "password"
           name="password"
           value={formData.password}
           onChange={handleChange}

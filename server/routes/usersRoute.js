@@ -11,8 +11,8 @@ const getUserScoresController = require("../controllers/getUserScoresController"
 const getLastScoreController = require("../controllers/getLastScoreController");
 const getHighestScoreController = require("../controllers/getHighestScoreController");
 
-router.post("/signup", validateInput, signupController);
-router.post("/login", loginInput, loginController);
+router.post("/signup", signupController);
+router.post("/login", loginController);
 router.post("/scores", addScoreController);
 router.get("/scores", authenticateUser, getAllScoresController);
 router.get("/scores/:id", authenticateUser, getUserScoresController);

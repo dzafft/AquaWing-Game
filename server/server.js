@@ -6,7 +6,14 @@ const usersRoute = require("./routes/usersRoute");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://aqua-wing-client.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 app.use(express.json());
 app.use("/", usersRoute);
 

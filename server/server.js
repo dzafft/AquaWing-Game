@@ -6,22 +6,7 @@ const usersRoute = require("./routes/usersRoute");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      const whitelist = [
-        "http://localhost:3000",
-        "https://aqua-wing-client.vercel.app",
-      ];
-      if (whitelist.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-  })
-);
-
+app.use(cors());
 app.use(express.json());
 app.use("/", usersRoute);
 

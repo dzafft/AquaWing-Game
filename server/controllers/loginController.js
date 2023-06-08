@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const usersDB = require("../database/users");
+const secretKey = process.env.JWT_SECRET;
 
 const loginController = (req, res) => {
   const { email, password } = req.body;

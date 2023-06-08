@@ -1,14 +1,20 @@
-const authenticateUser = (req, res, next) => {
-  // TODO: Implement authentication logic here
-  // For example, you can validate the JWT token sent in the request header
+const jwt = require("jsonwebtoken");
+const secretKey = process.env.JWT_SECRET;
 
-  if (!authenticated) {
-    return res.status(401).json({ error: "Unauthorized." });
+const authenticateUser = (req, res, next) => {
+  const token = req.header("Authorization");
+
+  if (!token) {
+    return res.status(401).json({ error: "Unauthorized. Missing token." });
   }
 
-  req.params.id = authenticatedUser.userId;
-
-  next();
+  try {
+    const decoded = jwt.verify(token, secretKey);
+    req.user = decoded.user;
+    next();
+  } catch (error) {
+    return res.status(401).json({ error: "Unauthorized. Invalid token." });
+  }
 };
 
 module.exports = authenticateUser;

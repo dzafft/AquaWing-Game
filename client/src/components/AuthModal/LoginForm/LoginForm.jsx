@@ -21,7 +21,6 @@ const LoginForm = ({ handleToggleForm, handleMusic }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    process.env.REACT_APP_SERVER_URL;
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/login`,
@@ -59,7 +58,7 @@ const LoginForm = ({ handleToggleForm, handleMusic }) => {
         />
         <label>Password</label>
         <input
-          type="password" // Change the input type to "password"
+          type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}

@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://aqua-wing-client.vercel.app/"],
+    origin: ["http://localhost:3000", "https://aqua-wing-client.vercel.app"],
   })
 );
 

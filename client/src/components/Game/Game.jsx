@@ -16,7 +16,7 @@ const BIRD_SIZE = 20;
 const GAME_WIDTH = 500;
 const GAME_HEIGHT = 500;
 const GRAVITY = 3;
-const JUMP_HEIGHT = 100;
+const JUMP_HEIGHT = 80;
 const OBSTACLE_WIDTH = 50;
 const OBSTACLE_GAP = 8 * BIRD_SIZE;
 
@@ -82,6 +82,9 @@ const Game = ({ score, setScore, hasGameStarted, setHasGameStarted }) => {
       event.preventDefault();
       setIsJumping(true);
 
+      const audio = new Audio(jumpSound);
+      audio.play();
+
       setTimeout(() => {
         setIsJumping(false);
       }, 400);
@@ -104,7 +107,7 @@ const Game = ({ score, setScore, hasGameStarted, setHasGameStarted }) => {
     return () => {
       document.removeEventListener("keydown", handleSpaceBar);
     };
-  }, []);
+  }, [handleSpaceBar]);
 
   const handleClick = (e) => {
     if (hasGameStarted === false) {

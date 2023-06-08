@@ -3,19 +3,18 @@ import LoginForm from "./LoginForm/LoginForm";
 import SignupForm from "./SignupForm/SignupForm";
 import { usersContextRef } from "../../contexts/usersContext";
 
-const AuthModal = () => {
+const AuthModal = ({ open, setOpen }) => {
   const [isLoginForm, setIsLoginForm] = useState(true);
-  // const { currentUser } = useContext(usersContextRef);
+  const { currentUser } = useContext(usersContextRef);
 
   const handleToggleForm = () => setIsLoginForm(!isLoginForm);
 
   // Closes modal on login
-  // useEffect(() => {
-  //   if (currentUser) {
-  //     setOpenAuthModal(false);
-  //     handleClose();
-  //   }
-  // }, [currentUser, setOpenAuthModal]);
+  useEffect(() => {
+    if (currentUser) {
+      setOpen(false);
+    }
+  }, [currentUser]);
 
   return (
     <>

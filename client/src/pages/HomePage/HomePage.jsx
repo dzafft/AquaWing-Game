@@ -57,7 +57,7 @@ const HomePage = () => {
       <ModalComponent
         open={openModal}
         setOpen={setOpenModal}
-        content={<AuthModal />}
+        content={<AuthModal open={openModal} setOpen={setOpenModal} />}
       />
       <ModalComponent
         open={showInstructions}

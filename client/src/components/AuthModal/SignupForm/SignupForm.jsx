@@ -36,7 +36,7 @@ const SignupForm = ({ handleToggleForm, handleMusic }) => {
         formData
       );
       console.log(response.data);
-      setCurrentUser(response.data.user);
+      setCurrentUser(response.data);
     } catch (error) {
       console.log("Error", error.message);
     }

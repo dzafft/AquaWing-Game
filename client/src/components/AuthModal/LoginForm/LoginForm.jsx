@@ -21,9 +21,10 @@ const LoginForm = ({ handleToggleForm, handleMusic }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    process.env.REACT_APP_SERVER_URL;
     try {
       const response = await axios.post(
-        "http://localhost:8080/login",
+        `${process.env.REACT_APP_SERVER_URL}/login`,
         formData
       );
       const token = response.data.token;

@@ -32,7 +32,7 @@ const SignupForm = ({ handleToggleForm, handleMusic }) => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:8080/signup",
+        `${process.env.REACT_APP_SERVER_URL}/signup`,
         formData
       );
       const token = response.data.token;

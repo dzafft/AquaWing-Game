@@ -22,6 +22,9 @@ app.use(
   })
 );
 
+app.use(express.json());
+app.use("/", usersRoute);
+
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -36,6 +39,3 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
-
-app.use(express.json());
-app.use("/", usersRoute);

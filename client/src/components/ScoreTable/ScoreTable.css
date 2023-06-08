@@ -1,6 +1,6 @@
 .scoreboard {
     list-style: none;
-    color: #c3e7ed;
+    color: #d8f3f8;
     background-color: rgba(255, 228, 196, 0.154);
     border-radius: 20px;
     outline: 1px solid black;
@@ -11,5 +11,5 @@
 }
 
 .table-wrapper span {
-    margin: 1rem;
+    margin: 1.2rem;
 }

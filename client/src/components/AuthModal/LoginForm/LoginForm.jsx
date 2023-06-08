@@ -26,7 +26,8 @@ const LoginForm = ({ handleToggleForm, handleMusic }) => {
         "http://localhost:8080/login",
         formData
       );
-      console.log(response.data);
+      const token = response.data.token;
+      localStorage.setItem("token", token);
       setCurrentUser(response.data);
     } catch (error) {
       console.log("Error", error.message);

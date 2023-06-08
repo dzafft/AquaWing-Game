@@ -3,11 +3,13 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 const usersRoute = require("./routes/usersRoute");
+const cors = require("cors");
+const mongoose = require("mongoose");
 
 app.use(
   cors({
     origin: "http://localhost:3000",
-    credentials: true,
+    // credentials: true,
   })
 );
 
@@ -24,7 +26,7 @@ mongoose
   });
 
 app.use(express.json());
-app.use("/user", usersRoute);
+app.use("/", usersRoute);
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);

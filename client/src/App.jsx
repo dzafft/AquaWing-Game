@@ -11,14 +11,7 @@ function App() {
     <div className="main-container">
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route
-          path="/start"
-          element={
-            <ProtectedRoute>
-              <GamePage />
-            </ProtectedRoute>
-          }
-        ></Route>{" "}
+        <Route path="/start" element={<GamePage />}></Route>{" "}
         <Route
           path="/scoreboard"
           element={

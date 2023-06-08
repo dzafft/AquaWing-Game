@@ -15,10 +15,10 @@ const MainMenu = ({ setOpenModal, setIsMuted }) => {
 
   const handleStart = () => {
     setIsMuted(false);
-    if (!currentUser) {
-      setOpenModal(true);
-      return;
-    }
+    // if (!currentUser) {
+    //   setOpenModal(true);
+    //   return;
+    // }
     navigate("/start");
   };
 

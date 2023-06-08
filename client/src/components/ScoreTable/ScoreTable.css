@@ -1,0 +1,15 @@
+.scoreboard {
+    list-style: none;
+    color: #c3e7ed;
+    background-color: rgba(255, 228, 196, 0.154);
+    border-radius: 20px;
+    outline: 1px solid black;
+}
+
+.scoreboard li {
+    font-size: 3rem;
+}
+
+.table-wrapper span {
+    margin: 1rem;
+}

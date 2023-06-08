@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import GamePage from "./pages/GamePage/GamePage";
 import ProtectedRoute from "./components/ProtectedRoutes/ProtectedRoutes";
+import ScorePage from "./pages/ScorePage/ScorePage";
 
 function App() {
   return (
@@ -15,6 +16,14 @@ function App() {
           element={
             <ProtectedRoute>
               <GamePage />
+            </ProtectedRoute>
+          }
+        ></Route>{" "}
+        <Route
+          path="/scoreboard"
+          element={
+            <ProtectedRoute>
+              <ScorePage />
             </ProtectedRoute>
           }
         ></Route>

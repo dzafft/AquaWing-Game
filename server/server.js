@@ -18,13 +18,10 @@ app.use(express.json());
 app.use("/", usersRoute);
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log("MongoDB connected");
+    app.listen(PORT, () => {
+      console.log(`Listening on port:${PORT}`);
+    });
   })
-  .catch((err) => {
-    console.error("MongoDB connection error:", err);
-  });
+  .catch((err) => console.log("DB Connection Error: ", err.message));

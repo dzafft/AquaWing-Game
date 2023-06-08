@@ -1,12 +1,9 @@
 {
     "version": 2,
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "/api/index.js"
-      }
+    "builds": [
+       { "src": "*.js", "use": "@vercel/node" }
     ],
-    "env": {
-      "MONGODB_URI": "@mongodb_uri"
-    }
-  }
+    "routes": [
+       { "src": "/(.*)", "dest": "/" }
+    ]
+ }
